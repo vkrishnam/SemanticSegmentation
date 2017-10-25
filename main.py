@@ -6,6 +6,9 @@ from distutils.version import LooseVersion
 import project_tests as tests
 import time
 
+
+
+
 # Check TensorFlow Version
 #assert LooseVersion(tf.__version__) >= LooseVersion('1.0'), 'Please use TensorFlow version 1.0 or newer.  You are using {}'.format(tf.__version__)
 #print('TensorFlow Version: {}'.format(tf.__version__))
@@ -54,6 +57,10 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
     :param num_classes: Number of classes to classify
     :return: The Tensor for the last layer of output
     """
+
+    # Refered the following work for syntax but improvised the architecture with more layers and improved results
+    # https://github.com/jeremy-shannon/CarND-Semantic-Segmentation 
+
     # TODO: Implement function
     # 1x1 convolution of vgg layer 7
     layer7a_out = tf.layers.conv2d(vgg_layer7_out, num_classes, 1, 
